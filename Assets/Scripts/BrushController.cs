@@ -60,6 +60,7 @@ public class BrushController : MonoBehaviour
             currentPow = calcPower(mouseDownPos, currentMousePos);
 
             brush.renderTrejectory(currentDir, currentPow);
+            brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
         }
 
 
@@ -78,6 +79,14 @@ public class BrushController : MonoBehaviour
             direction = new Vector3(0, 0, 0);
             power = 0;
             shoot = false;
+        }
+
+        if(!shoot) {
+            if(brush.transform.rotation.x < 0) {
+                brush.transform.Rotate(new Vector3(1, 0, 0));
+            } else {
+                brush.transform.rotation = Quaternion.identity;
+            }
         }
     }
 
