@@ -14,71 +14,71 @@ public class BrushController : MonoBehaviour
     private float maxPower;
 
     //Aiming varibales
-    [SerializeField]
-    private float powerDivider;
+    private Touch touch;
 
-    private Vector3 mouseDownPos;
+    private Vector3 dragStartPos;
 
-    private Vector3 mouseUpPos;
+    private Vector3 dragReleasePos;
 
     private Vector3 direction;
 
     private float power;
 
-    private Vector3 currentMousePos;
+    private Vector3 currentDragPos;
+
+    private Vector3 currentDir;
+
+    private float currentPow;
 
     [NonSerialized]
-    public Vector3 currentDir;
-
-    [NonSerialized]
-    public float currentPow;
-
-    [NonSerialized]
-    public bool shoot;
+    public bool shooting;
 
     private void Start()
     {
         brush.Reload();
-
-        Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
-        //Start shooting process
-        if (Input.GetMouseButtonDown(0) && !shoot)
+        if (Input.touchCount > 0)
         {
-            mouseDownPos = Input.mousePosition;
-            shoot = true;
-        }
+            touch = Input.GetTouch(0);
+            
+            //Start touch
+            if (touch.phase == TouchPhase.Began && !shooting)
+            {
+                dragStartPos = touch.position;
+                
+                shooting = true;
+            }
 
-        if(shoot)
-        {
-            currentMousePos = Input.mousePosition;
-            currentDir = calcDirection(mouseDownPos, currentMousePos);
-            currentPow = calcPower(mouseDownPos, currentMousePos);
+            //Moving touch
+            if (touch.phase == TouchPhase.Moved && shooting)
+            {
+                currentDragPos = touch.position;
+                currentDir = calcDirection(dragStartPos, currentDragPos);
+                currentPow = calcPower(dragStartPos, currentDragPos);
+				brush.renderTrejectory(currentDir, currentPow);
+				brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+            }
+			
+            //Released touch
+            if (touch.phase == TouchPhase.Ended && shooting)
+            {
+                dragReleasePos = touch.position;
+                direction = calcDirection(dragStartPos, dragReleasePos);
 
-            brush.renderTrejectory(currentDir, currentPow);
-            brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
-        }
+                //Power based on length of direction vector.
+                power = calcPower(dragStartPos, dragReleasePos);
 
+                brush.Shoot(direction, power);
+                brush.resetTrejectory();
 
-        if (shoot && Input.GetMouseButtonUp(0))
-        {
-            mouseUpPos = Input.mousePosition;
-            direction = calcDirection(mouseDownPos, mouseUpPos);
-
-            //Power based on length of direction vector.
-            power = calcPower(mouseDownPos, mouseUpPos);
-
-            brush.Shoot(direction, power);
-            brush.resetTrejectory();
-
-            //Reset paint ball
-            direction = new Vector3(0, 0, 0);
-            power = 0;
-            shoot = false;
+                //Reset paint ball
+                direction = new Vector3(0, 0, 0);
+                power = 0;
+                shooting = false;
+            }
         }
 
         if(!shoot) {
@@ -97,6 +97,18 @@ public class BrushController : MonoBehaviour
 
     private float calcPower(Vector3 startPoint, Vector3 endPoint)
     {
-        return Mathf.Min(Vector3.Distance(startPoint, endPoint) / powerDivider, maxPower);
+        float distance = Mathf.Max(Vector3.Distance(startPoint, endPoint), 1f); 
+        float scaledPower = distance * 0.1f;
+        return Mathf.Min(scaledPower, maxPower);
+    }
+
+    public float getCurrentPower()
+    {
+        return power;
+    }
+
+    public float getMaxPower()
+    {
+        return maxPower;
     }
 }
