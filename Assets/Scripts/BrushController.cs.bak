@@ -58,10 +58,16 @@ public class BrushController : MonoBehaviour
                 currentDragPos = touch.position;
                 currentDir = calcDirection(dragStartPos, currentDragPos);
                 currentPow = calcPower(dragStartPos, currentDragPos);
-				brush.renderTrejectory(currentDir, currentPow);
-				brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+
+<<<<<<< HEAD
+            brush.renderTrejectory(currentDir, currentPow);
+            brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+        }
+=======
+                brush.renderTrejectory(currentDir, currentPow);
             }
-			
+>>>>>>> shooting
+
             //Released touch
             if (touch.phase == TouchPhase.Ended && shooting)
             {
@@ -81,7 +87,7 @@ public class BrushController : MonoBehaviour
             }
         }
 
-        if(!shooting) {
+        if(!shoot) {
             if(brush.transform.rotation.x < 0) {
                 brush.transform.Rotate(new Vector3(1, 0, 0));
             } else {
