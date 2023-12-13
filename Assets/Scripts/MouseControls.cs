@@ -12,8 +12,6 @@ public class MouseControls : MonoBehaviour
     private float maxPower;
 
     //Aiming varibales
-    [SerializeField]
-    private float powerDivider;
 
     private Vector3 mouseDownPos;
 
@@ -29,7 +27,7 @@ public class MouseControls : MonoBehaviour
 
     private float currentPow;
 
-    private bool shoot;
+    private bool shooting;
 
     private void Start()
     {
@@ -42,13 +40,13 @@ public class MouseControls : MonoBehaviour
     private void Update()
     {
         //Start shooting process
-        if (Input.GetMouseButtonDown(0) && !shoot)
+        if (Input.GetMouseButtonDown(0) && !shooting)
         {
             mouseDownPos = Input.mousePosition;
-            shoot = true;
+            shooting = true;
         }
 
-        if (shoot)
+        if (shooting)
         {
             currentMousePos = Input.mousePosition;
             currentDir = calcDirection(mouseDownPos, currentMousePos);
@@ -59,7 +57,7 @@ public class MouseControls : MonoBehaviour
         }
 
 
-        if (shoot && Input.GetMouseButtonUp(0))
+        if (shooting && Input.GetMouseButtonUp(0))
         {
             mouseUpPos = Input.mousePosition;
             direction = calcDirection(mouseDownPos, mouseUpPos);
@@ -73,7 +71,7 @@ public class MouseControls : MonoBehaviour
             //Reset paint ball
             direction = new Vector3(0, 0, 0);
             power = 0;
-            shoot = false;
+            shooting = false;
         }
     }
 
