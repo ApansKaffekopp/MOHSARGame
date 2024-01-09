@@ -59,7 +59,7 @@ public class BrushController : MonoBehaviour
                 currentDir = calcDirection(dragStartPos, currentDragPos);
                 currentPow = calcPower(dragStartPos, currentDragPos);
 				brush.renderTrejectory(currentDir, currentPow);
-				brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+				//brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
             }
 			
             //Released touch
@@ -80,7 +80,7 @@ public class BrushController : MonoBehaviour
                 shooting = false;
             }
         }
-
+        /*
         if(!shooting) {
             if(brush.transform.rotation.x < 0) {
                 brush.transform.Rotate(new Vector3(1, 0, 0));
@@ -88,6 +88,7 @@ public class BrushController : MonoBehaviour
                 brush.transform.rotation = Quaternion.identity;
             }
         }
+        */
     }
 
     private Vector3 calcDirection(Vector3 startPoint, Vector3 endPoint)

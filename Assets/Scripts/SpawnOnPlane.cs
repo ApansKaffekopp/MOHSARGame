@@ -10,6 +10,7 @@ public class SpawnOnPlane : MonoBehaviour
     [SerializeField] public GameObject objectToSpawn; // Your prefab
     public ARRaycastManager arRaycastManager;
     private Vector2 touchPosition;
+    private bool planeSpawned = false;
 
     void Update()
     {
@@ -21,15 +22,19 @@ public class SpawnOnPlane : MonoBehaviour
             if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
-                SpawnObject(hitPose.position, Quaternion.identity);
+                SpawnObject(hitPose.position, Quaternion.LookRotation(hitPose.forward, hitPose.up));
             }
         }
     }
 
     private void SpawnObject(Vector3 position, Quaternion rotation)
     {
-        // Instantiate the objectToSpawn at the given position and rotation
-        Instantiate(objectToSpawn, position, rotation);
+        if (!planeSpawned)
+        {
+            // Instantiate the objectToSpawn at the given position and rotation
+            Instantiate(objectToSpawn, position, rotation);
+            planeSpawned = true;
+        }
     }
 
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();

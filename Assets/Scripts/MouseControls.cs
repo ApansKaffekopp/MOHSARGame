@@ -53,7 +53,7 @@ public class MouseControls : MonoBehaviour
             currentPow = calcPower(mouseDownPos, currentMousePos);
 
             brush.renderTrejectory(currentDir, currentPow);
-            brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
+            //brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
         }
 
 
