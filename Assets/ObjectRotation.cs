@@ -33,7 +33,7 @@ public class ObjectRotation : MonoBehaviour
                     if (isRotating)
                     {
                         Vector2 touchDelta = touch.position - previousTouchPosition;
-                        transform.Rotate(Vector3.forward, -touchDelta.y, Space.World); // Adjust rotation sensitivity by multiplying touchDelta.x
+                        transform.Rotate(Vector3.forward, -touchDelta.y, Space.World); // Adjust rotation sensitivity by multiplying touchDelta.x hej
                         previousTouchPosition = touch.position;
                     }
                     break;
