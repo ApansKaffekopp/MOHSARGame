@@ -42,6 +42,7 @@ public class MouseControls : MonoBehaviour
     }
 
     private void OnEnable() {
+        canShoot = true;
         if(gameManager != null) {
         gameManager.toggleShooting += toggleShooting;
         }
