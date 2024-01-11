@@ -53,7 +53,7 @@ public class Brush : MonoBehaviour
             newPoint.y = startingPoint.y + startingVelocity.y * t + Physics.gravity.y / 2f * t * t;
             points.Add(newPoint);
 
-            if (Physics.OverlapSphere(newPoint, 1f, CollidableLayers).Length > 0)
+            if (Physics.OverlapSphere(newPoint, 0.01f, CollidableLayers).Length > 0)
             {
                 lineRenderer.positionCount = points.Count;
                 break;
