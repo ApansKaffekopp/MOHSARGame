@@ -1,14 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
-    public void Play()
+    public void Play(String scene)
     {
-        //Might want to use string name instead of index if we add more scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("Player started game.");
+        SceneManager.LoadScene(scene);
+        Debug.Log("Player started" + scene);
     }
 
     public void Quit()

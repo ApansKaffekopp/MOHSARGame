@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CanvasManager : MonoBehaviour
 {
 
@@ -13,7 +12,6 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable() {
         if(gameManager = null) {
-        time.SetActive(false);
         }
         escapeMenu.SetActive(false);
     }
@@ -23,7 +21,7 @@ public class CanvasManager : MonoBehaviour
     }
 
     public void MainMenu() {
-        
+        SceneManager.LoadScene("StartMenu");
     }
 
     // Update is called once per frame
