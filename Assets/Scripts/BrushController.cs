@@ -94,16 +94,6 @@ public class BrushController : MonoBehaviour
                     shooting = false;
                 }
             }
-
-            //Moving touch
-            if (touch.phase == TouchPhase.Moved && shooting)
-            {
-                currentDragPos = touch.position;
-                currentDir = calcDirection(dragStartPos, currentDragPos);
-                currentPow = calcPower(dragStartPos, currentDragPos);
-				brush.renderTrejectory(currentDir, currentPow);
-				//brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
-            }
         } else {
                 brush.resetTrejectory();
 
