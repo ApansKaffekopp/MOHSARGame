@@ -6,6 +6,7 @@ public class ObjectRotation : MonoBehaviour
 {
     private bool isRotating = false;
     private Vector2 previousTouchPosition;
+    private float rotationSpeed = 30f;
 
     void Update()
     {
@@ -33,7 +34,9 @@ public class ObjectRotation : MonoBehaviour
                     if (isRotating)
                     {
                         Vector2 touchDelta = touch.position - previousTouchPosition;
-                        transform.Rotate(Vector3.forward, -touchDelta.y, Space.World); // Adjust rotation sensitivity by multiplying touchDelta.x hej
+                        //ToDo change to be called by buttons.
+                        //transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime); //Rotates object to the right
+                        transform.Rotate(Vector3.down * rotationSpeed * Time.deltaTime); //Rotates object to the left
                         previousTouchPosition = touch.position;
                     }
                     break;

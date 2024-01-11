@@ -483,17 +483,22 @@ PrefabInstance:
     - target: {fileID: 7196916901114150021, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: CollidableLayers.m_Bits
-      value: 55
+      value: 129
       objectReference: {fileID: 0}
+    - target: {fileID: 8041195829886793126, guid: d76cafaeb4abf9f4390d167e286d6a0f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bae50007b1355542803e8dfcb1703f1, type: 2}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_CastShadows
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
@@ -503,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_ReceiveShadows
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
@@ -533,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Parameters.widthMultiplier
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
@@ -548,17 +553,17 @@ PrefabInstance:
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
-      value: 1
+      value: 0.37068352
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
+      value: 0.72916114
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 9025364668228134352, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
@@ -608,12 +613,12 @@ PrefabInstance:
     - target: {fileID: 9210773680116649673, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.168
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9210773680116649673, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.38
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
