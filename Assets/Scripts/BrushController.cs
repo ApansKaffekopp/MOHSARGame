@@ -44,7 +44,16 @@ public class BrushController : MonoBehaviour
     }
 
     private void OnEnable() {
+        canShoot = true;
+        if(gameManager != null) {
         gameManager.toggleShooting += toggleShooting;
+        }
+    }
+
+    private void OnDisable() {
+        if(gameManager != null) {
+        gameManager.toggleShooting -= toggleShooting;
+        }
     }
 
     private void toggleShooting(bool inp) {
