@@ -37,6 +37,8 @@ public class Brush : MonoBehaviour
     [SerializeField]
     private LayerMask CollidableLayers;
 
+    private Material currentMaterial;
+
 
     public void renderTrejectory(Vector3 direction, float power)
     {
@@ -96,17 +98,26 @@ public class Brush : MonoBehaviour
         paintBallPrefab.currentMaterialIndex = 0;
     }
 
+    public void RotateColor() {
+        // Cycle to the next material
+        currentMaterialIndex = (currentMaterialIndex + 1) % arrayLength;
+        paintBallPrefab.currentMaterialIndex = currentMaterialIndex;
+
+        Material[] materials = myRenderer.materials;
+        materials[3] = paintBallPrefab.materials[currentMaterialIndex];
+        myRenderer.materials = materials;
+        currentMaterial = paintBallPrefab.materials[currentMaterialIndex];
+    }
+
+    public Material GetCurrentMaterial(){
+        return currentMaterial;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Cycle to the next material
-            currentMaterialIndex = (currentMaterialIndex + 1) % arrayLength;
-            paintBallPrefab.currentMaterialIndex = currentMaterialIndex;
-
-            Material[] materials = myRenderer.materials;
-            materials[3] = paintBallPrefab.materials[currentMaterialIndex];
-            myRenderer.materials = materials;
+            RotateColor();
         }
     }
 
