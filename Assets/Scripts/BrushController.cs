@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class BrushController : MonoBehaviour
@@ -33,60 +34,81 @@ public class BrushController : MonoBehaviour
     [NonSerialized]
     public bool shooting;
 
+    [NonSerialized] public bool canShoot;
+
+    [SerializeField] GameManager gameManager;
+
     private void Start()
     {
         brush.Reload();
     }
 
+    private void OnEnable() {
+        gameManager.toggleShooting += toggleShooting;
+    }
+
+    private void toggleShooting(bool inp) {
+        canShoot = inp;
+    }
+
     private void Update()
     {
-        if (Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-            
-            //Start touch
-            if (touch.phase == TouchPhase.Began && !shooting)
+        if(canShoot) {
+            if (Input.touchCount > 0)
             {
-                dragStartPos = touch.position;
+                touch = Input.GetTouch(0);
                 
-                shooting = true;
+                //Start touch
+                if (touch.phase == TouchPhase.Began && !shooting)
+                {
+                    dragStartPos = touch.position;
+                    
+                    shooting = true;
+                }
+
+                //Moving touch
+                if (touch.phase == TouchPhase.Moved && shooting)
+                {
+                    currentDragPos = touch.position;
+                    currentDir = calcDirection(dragStartPos, currentDragPos);
+                    currentPow = calcPower(dragStartPos, currentDragPos);
+                    brush.renderTrejectory(currentDir, currentPow);
+                    brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+                }
+                
+                //Released touch
+                if (touch.phase == TouchPhase.Ended && shooting)
+                {
+                    dragReleasePos = touch.position;
+                    direction = calcDirection(dragStartPos, dragReleasePos);
+
+                    //Power based on length of direction vector.
+                    power = calcPower(dragStartPos, dragReleasePos);
+
+                    brush.Shoot(direction, power);
+                    brush.resetTrejectory();
+
+                    //Reset paint ball
+                    direction = new Vector3(0, 0, 0);
+                    power = 0;
+                    shooting = false;
+                }
             }
 
-            //Moving touch
-            if (touch.phase == TouchPhase.Moved && shooting)
-            {
-                currentDragPos = touch.position;
-                currentDir = calcDirection(dragStartPos, currentDragPos);
-                currentPow = calcPower(dragStartPos, currentDragPos);
-				brush.renderTrejectory(currentDir, currentPow);
-				brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+            if(!shooting) {
+                if(brush.transform.rotation.x < 0) {
+                    brush.transform.Rotate(new Vector3(1, 0, 0));
+                } else {
+                    brush.transform.rotation = Quaternion.identity;
+                }
             }
-			
-            //Released touch
-            if (touch.phase == TouchPhase.Ended && shooting)
-            {
-                dragReleasePos = touch.position;
-                direction = calcDirection(dragStartPos, dragReleasePos);
+        } else {
+                    brush.resetTrejectory();
 
-                //Power based on length of direction vector.
-                power = calcPower(dragStartPos, dragReleasePos);
-
-                brush.Shoot(direction, power);
-                brush.resetTrejectory();
-
-                //Reset paint ball
-                direction = new Vector3(0, 0, 0);
-                power = 0;
-                shooting = false;
-            }
-        }
-
-        if(!shooting) {
-            if(brush.transform.rotation.x < 0) {
-                brush.transform.Rotate(new Vector3(1, 0, 0));
-            } else {
-                brush.transform.rotation = Quaternion.identity;
-            }
+                    //Reset paint ball
+                    direction = new Vector3(0, 0, 0);
+                    power = 0;
+                    shooting = false;
         }
     }
 

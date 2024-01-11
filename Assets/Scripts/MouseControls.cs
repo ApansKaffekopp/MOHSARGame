@@ -29,6 +29,10 @@ public class MouseControls : MonoBehaviour
 
     private bool shooting;
 
+    [NonSerialized] public bool canShoot;
+
+    [SerializeField] GameManager gameManager;
+
     private void Start()
     {
         brush.Reload();
@@ -37,41 +41,58 @@ public class MouseControls : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void OnEnable() {
+        gameManager.toggleShooting += toggleShooting;
+    }
+
+    private void toggleShooting(bool inp) {
+        canShoot = inp;
+    }
+
     private void Update()
     {
-        //Start shooting process
-        if (Input.GetMouseButtonDown(0) && !shooting)
-        {
-            mouseDownPos = Input.mousePosition;
-            shooting = true;
-        }
+        if(canShoot) {
+            //Start shooting process
+            if (Input.GetMouseButtonDown(0) && !shooting)
+            {
+                mouseDownPos = Input.mousePosition;
+                shooting = true;
+            }
 
-        if (shooting)
-        {
-            currentMousePos = Input.mousePosition;
-            currentDir = calcDirection(mouseDownPos, currentMousePos);
-            currentPow = calcPower(mouseDownPos, currentMousePos);
+            if (shooting)
+            {
+                currentMousePos = Input.mousePosition;
+                currentDir = calcDirection(mouseDownPos, currentMousePos);
+                currentPow = calcPower(mouseDownPos, currentMousePos);
 
-            brush.renderTrejectory(currentDir, currentPow);
-            brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
-        }
+                brush.renderTrejectory(currentDir, currentPow);
+                brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
+            }
 
 
-        if (shooting && Input.GetMouseButtonUp(0))
-        {
-            mouseUpPos = Input.mousePosition;
-            direction = calcDirection(mouseDownPos, mouseUpPos);
+            if (shooting && Input.GetMouseButtonUp(0))
+            {
+                mouseUpPos = Input.mousePosition;
+                direction = calcDirection(mouseDownPos, mouseUpPos);
 
-            //Power based on length of direction vector.
-            power = calcPower(mouseDownPos, mouseUpPos);
+                //Power based on length of direction vector.
+                power = calcPower(mouseDownPos, mouseUpPos);
 
-            brush.Shoot(direction, power);
-            brush.resetTrejectory();
+                brush.Shoot(direction, power);
+                brush.resetTrejectory();
 
-            //Reset paint ball
-            direction = new Vector3(0, 0, 0);
-            power = 0;
-            shooting = false;
+                //Reset paint ball
+                direction = new Vector3(0, 0, 0);
+                power = 0;
+                shooting = false;
+            }
+        } else {
+                    brush.resetTrejectory();
+
+                    //Reset paint ball
+                    direction = new Vector3(0, 0, 0);
+                    power = 0;
+                    shooting = false;
         }
     }
 
