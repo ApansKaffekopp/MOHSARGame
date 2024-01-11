@@ -11,9 +11,16 @@ public class StartMenu : MonoBehaviour
         Debug.Log("Player started game.");
     }
 
-    public void Qut()
+    public void Quit()
     {
         Application.Quit();
         Debug.Log("Player quit game.");
+    }
+
+    //ToDo Add if we have time.
+    public void Settings()
+    {
+        //ToDo add implementation.
+        Debug.Log("SETTINGS FUNCTION NOT YET IMPLEMENTED");
     }
 }

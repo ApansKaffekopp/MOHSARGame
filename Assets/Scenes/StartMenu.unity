@@ -298,6 +298,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 959353449}
     m_Modifications:
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2018852806}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StartMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4779510931846549488, guid: 71c1cbd477a012548a8bb85000da9c2a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -718,7 +753,7 @@ PrefabInstance:
     - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Qut
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 1640425331608475752, guid: 71c1cbd477a012548a8bb85000da9c2a,
         type: 3}
