@@ -95,21 +95,32 @@ public class BrushController : MonoBehaviour
                 }
             }
 
-            if(!shooting) {
-                if(brush.transform.rotation.x < 0) {
-                    brush.transform.Rotate(new Vector3(1, 0, 0));
-                } else {
-                    brush.transform.rotation = Quaternion.identity;
-                }
+            //Moving touch
+            if (touch.phase == TouchPhase.Moved && shooting)
+            {
+                currentDragPos = touch.position;
+                currentDir = calcDirection(dragStartPos, currentDragPos);
+                currentPow = calcPower(dragStartPos, currentDragPos);
+				brush.renderTrejectory(currentDir, currentPow);
+				//brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
             }
         } else {
-                    brush.resetTrejectory();
+                brush.resetTrejectory();
 
-                    //Reset paint ball
-                    direction = new Vector3(0, 0, 0);
-                    power = 0;
-                    shooting = false;
+                //Reset paint ball
+                direction = new Vector3(0, 0, 0);
+                power = 0;
+                shooting = false;
         }
+        /*
+        if(!shooting) {
+            if(brush.transform.rotation.x < 0) {
+                brush.transform.Rotate(new Vector3(1, 0, 0));
+            } else {
+                brush.transform.rotation = Quaternion.identity;
+            }
+        }
+        */
     }
 
     private Vector3 calcDirection(Vector3 startPoint, Vector3 endPoint)

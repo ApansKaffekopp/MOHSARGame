@@ -65,9 +65,9 @@ public class MouseControls : MonoBehaviour
                 currentDir = calcDirection(mouseDownPos, currentMousePos);
                 currentPow = calcPower(mouseDownPos, currentMousePos);
 
-                brush.renderTrejectory(currentDir, currentPow);
-                brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
-            }
+            brush.renderTrejectory(currentDir, currentPow);
+            //brush.transform.eulerAngles = new Vector3(currentPow * -1, 0, 0);
+        }
 
 
             if (shooting && Input.GetMouseButtonUp(0))
