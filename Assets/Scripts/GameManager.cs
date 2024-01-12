@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +18,19 @@ public class GameManager : MonoBehaviour
 
     private bool gameStarted;
 
+    private bool gameFinished;
+
+    [SerializeField] GridColorTracker grid;
+    [SerializeField] List<Color> solution;
+    List<Color> currentGridColors;
+
+    private double score;
+
+    [SerializeField] GameObject scoreContainer;
+    [SerializeField] TMP_Text scoreText;
+
+    [SerializeField] GameObject picture;
+
 
 
     // Start is called before the first frame update
@@ -25,17 +39,35 @@ public class GameManager : MonoBehaviour
         toggleShooting?.Invoke(false);
         gameStarted = false;
         counter = 120;
+        currentGridColors = grid.GetColorGrid();
+        score = 0;
+        picture.SetActive(true);
     } 
 
     private void StartGame() {
         counter = 120;
-            toggleShooting?.Invoke(true);
-            gameStarted = true;
+        toggleShooting?.Invoke(true);
+        gameStarted = true;
+        gameFinished = false;
+        picture.SetActive(false);
     } 
 
     public string GetTimer() {
         int time = (int)counter;
         return time.ToString();
+    }
+
+    private void CheckScore() {
+        currentGridColors = grid.GetColorGrid();
+        int correctCubes = 0;
+        for(int i = 0; i < solution.Count; i++) {
+            if(currentGridColors[i] == solution[i]) {
+                correctCubes +=1;
+            }
+        }
+        score = (double)correctCubes/solution.Count;
+        scoreText.text = (score*100).ToString("#.0") + "%";
+        scoreContainer.SetActive(true);
     }
 
     // Update is called once per frame
@@ -53,10 +85,14 @@ public class GameManager : MonoBehaviour
                 StartGame();
             }
         } else {
-            counter -= Time.deltaTime;
-            if(counter <= 0) {
+            if(!gameFinished) {
+                counter -= Time.deltaTime;
+            }
+            if(counter <= 0 && !gameFinished) {
                 toggleShooting?.Invoke(false);
                 counter = 0;
+                CheckScore();
+                gameFinished = true;
             }
         }
     }
