@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private bool gameFinished;
 
-    [SerializeField] GridColorTracker grid;
+    GridColorTracker grid;
     [SerializeField] List<Color> solution;
     List<Color> currentGridColors;
 
@@ -39,12 +39,13 @@ public class GameManager : MonoBehaviour
         toggleShooting?.Invoke(false);
         gameStarted = false;
         counter = 120;
-        currentGridColors = grid.GetColorGrid();
+        //currentGridColors = grid.GetColorGrid();
         score = 0;
-        picture.SetActive(true);
+        //picture.SetActive(true);
     } 
 
-    private void StartGame() {
+    public void StartGame() {
+        grid = GameObject.Find("Plane(Clone)").gameObject.GetComponent<GridColorTracker>();
         counter = 120;
         toggleShooting?.Invoke(true);
         gameStarted = true;
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gameStarted) {
+        /*if(!gameStarted) {
             if (Input.touchCount > 0) {
                 Touch touch = Input.GetTouch(0);
                 
@@ -84,8 +85,8 @@ public class GameManager : MonoBehaviour
             } else if(Input.GetMouseButtonDown(0)){
                 StartGame();
             }
-        } else {
-            if(!gameFinished) {
+        } else {*/
+            if(!gameFinished && gameStarted) {
                 counter -= Time.deltaTime;
             }
             if(counter <= 0 && !gameFinished) {
@@ -94,6 +95,6 @@ public class GameManager : MonoBehaviour
                 CheckScore();
                 gameFinished = true;
             }
-        }
+        //}
     }
 }
