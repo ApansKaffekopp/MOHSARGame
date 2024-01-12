@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PixelChangeColor : MonoBehaviour
 {
     private Renderer cubeRenderer;
+    public Color currentColor;
+    public UnityAction<PixelChangeColor> ColorChanged;
 
     void Start()
     {
@@ -26,6 +30,8 @@ public class PixelChangeColor : MonoBehaviour
 
              // Apply the color to the cube
              cubeRenderer.material.color = newColor;
+             currentColor = newColor;
+             ColorChanged?.Invoke(this);
          }
      }
 
