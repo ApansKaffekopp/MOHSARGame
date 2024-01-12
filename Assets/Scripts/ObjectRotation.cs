@@ -5,6 +5,9 @@ using UnityEngine.XR.ARFoundation;
 
 public class ObjectRotation : MonoBehaviour
 {
+    [SerializeField] GameObject brush;
+    [SerializeField] GameObject rotateInput;
+
     private bool isRotating = false;
     private Vector2 previousTouchPosition;
     private float rotationSpeed = 30f;
@@ -81,5 +84,12 @@ public class ObjectRotation : MonoBehaviour
     public void ToggleRotateLeft(bool value)
     {
         rotateLeft = value;
+    }
+
+    public void AnchorObject()
+    {
+        GameObject.Find("Plane(Clone)").AddComponent<ARAnchor>();
+        brush.SetActive(true);
+        rotateInput.SetActive(false);
     }
 }

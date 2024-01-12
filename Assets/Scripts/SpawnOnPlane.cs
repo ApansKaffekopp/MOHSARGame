@@ -8,53 +8,22 @@ using Unity.Collections;
 public class SpawnOnPlane : MonoBehaviour
 {
     [SerializeField] public GameObject objectToSpawn; // Your prefab
-    //[SerializeField] public GameObject goodSpawnIndicator;
-    //[SerializeField] public GameObject badSpawnIndicator;
+    [SerializeField] public GameObject rotateInput;
+    [SerializeField] public GameObject infoText;
     
     public ARRaycastManager arRaycastManager;
     private Vector2 touchPosition;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
     
-    private bool isGoodPlacement = false;
     private bool isObjectSpawned = false;
 
     private void Start()
     {
-        //goodSpawnIndicator.SetActive(false);
-        //badSpawnIndicator.SetActive(false);
+        
     }
 
     void Update()
     {
-
-        //Find suitable place to spawen the canvas.
-        /*if (!isObjectSpawned && arRaycastManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.PlaneWithinPolygon))
-        {
-            Vector3 hitPose = hits[0].pose.position;
-
-            // Update indicator positions
-            goodSpawnIndicator.transform.position = hitPose;
-            badSpawnIndicator.transform.position = hitPose;
-
-            //CheckIf good spawn position
-
-            if (isGoodPlacement)
-            {
-                badSpawnIndicator.SetActive(false);
-                goodSpawnIndicator.SetActive(true);
-            }
-            else
-            {
-                goodSpawnIndicator.SetActive(false);
-                badSpawnIndicator.SetActive(true);
-            }
-        }
-        else
-        {
-            badSpawnIndicator.SetActive(false);
-            goodSpawnIndicator.SetActive(false);
-        }*/
-
         // Check if the player touches the screen and hits an AR plane
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -75,13 +44,13 @@ public class SpawnOnPlane : MonoBehaviour
             // Instantiate the objectToSpawn at the given position and rotation
             Instantiate(objectToSpawn, position, rotation);
             isObjectSpawned = true;
+            OpenRotateMenu();
         }
     }
 
-    private bool checkIfGoodPlacment()
+    private void OpenRotateMenu()
     {
-        //Add conditions for placement.
-        Debug.Log("NOT IMPLEMENTED");
-        return true;
+        rotateInput.SetActive(true);
+        infoText.SetActive(false);
     }
 }
