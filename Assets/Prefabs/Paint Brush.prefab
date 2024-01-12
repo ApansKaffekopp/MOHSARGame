@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brush: {fileID: 7196916901114150021}
   maxPower: 35
-  powerDivider: 4
+  gameManager: {fileID: 0}
 --- !u!1 &986556170449333115
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +152,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a274df6c39cd9be4f88211c11d1c7875,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bae50007b1355542803e8dfcb1703f1, type: 2}
     - target: {fileID: 919132149155446097, guid: a274df6c39cd9be4f88211c11d1c7875,
         type: 3}
       propertyPath: m_Name
