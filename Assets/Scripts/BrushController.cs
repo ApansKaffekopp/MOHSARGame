@@ -129,7 +129,7 @@ public class BrushController : MonoBehaviour
     private float calcPower(Vector3 startPoint, Vector3 endPoint)
     {
         float distance = Mathf.Max(Vector3.Distance(startPoint, endPoint), 1f); 
-        float scaledPower = distance * 0.1f;
+        float scaledPower = distance * 0.01f;
         return Mathf.Min(scaledPower, maxPower);
     }
 
