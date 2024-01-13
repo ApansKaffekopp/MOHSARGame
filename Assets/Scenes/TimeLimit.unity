@@ -3364,6 +3364,16 @@ PrefabInstance:
       objectReference: {fileID: 771111050}
     - target: {fileID: 1222853031957576901, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222853031957576901, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222853031957576901, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 184100641}
@@ -3372,10 +3382,25 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClickedSound
       objectReference: {fileID: 0}
+    - target: {fileID: 2000252555576897474, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242454313223075450, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2242454313223075450, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436281148763058000, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2436281148763058000, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
@@ -3495,11 +3520,21 @@ PrefabInstance:
     - target: {fileID: 4726209299498180234, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5017193044533430652, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686648284385857379, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686648284385857379, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5686648284385857379, guid: efdea11b31352604b8ffaf9cf11c54e0,
@@ -3556,6 +3591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClickedSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413654812865574695, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8413654812865574695, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
