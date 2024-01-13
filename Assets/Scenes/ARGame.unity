@@ -291,6 +291,8 @@ MonoBehaviour:
   hover: {fileID: 8300000, guid: df40f3ffc277ef742a27a81f78089139, type: 3}
   clicked: {fileID: 8300000, guid: 2b576e7efbd8f63408db280fd8711f3f, type: 3}
   backgroundMusic: {fileID: 8300000, guid: 14cc1cd41034dcf4a97657460b434190, type: 3}
+  shoot: {fileID: 8300000, guid: 8e8905de147fdda4b8a67b68989d00f1, type: 3}
+  hit: {fileID: 8300000, guid: 653d74cca1a3e2c4ab9dce9f36b3d76f, type: 3}
 --- !u!82 &663006702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1035,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: 4225694968864930852, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4225694968864930852, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
@@ -1047,6 +1049,11 @@ PrefabInstance:
       propertyPath: numPoints
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7196916901114150021, guid: d76cafaeb4abf9f4390d167e286d6a0f,
+        type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 663006701}
     - target: {fileID: 7196916901114150021, guid: d76cafaeb4abf9f4390d167e286d6a0f,
         type: 3}
       propertyPath: timeBetweenPoints
@@ -1257,7 +1264,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903658571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21446b7dae053664581ee7b691082774, type: 3}
   m_Name: 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Brush : MonoBehaviour
 {
     [SerializeField]
+    private PlaySound soundManager;
+
+    [SerializeField]
     private PaintBall paintBallPrefab;
 
     [SerializeField]
@@ -84,6 +87,7 @@ public class Brush : MonoBehaviour
     {
         if (isReloading) return;
         currentPaintBall = Instantiate(paintBallPrefab, spawnPoint);
+        soundManager.ShootSound();
         var force = spawnPoint.TransformDirection((Vector3.forward + direction) * power);
         currentPaintBall.Move(force);
         currentPaintBall = null;

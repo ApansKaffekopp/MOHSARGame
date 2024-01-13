@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class BrushController : MonoBehaviour
 {
-
     [SerializeField]
     private Brush brush;
 
@@ -82,7 +81,7 @@ public class BrushController : MonoBehaviour
                     currentDir = calcDirection(dragStartPos, currentDragPos);
                     currentPow = calcPower(dragStartPos, currentDragPos);
                     brush.renderTrejectory(currentDir, currentPow);
-                    brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
+                    //brush.transform.eulerAngles = new Vector3(currentPow*-1, 0, 0);
                 }
                 
                 //Released touch
