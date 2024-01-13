@@ -5,6 +5,8 @@ using UnityEngine;
 public class PaintBall : MonoBehaviour
 {
     [SerializeField]
+    private PlaySound soundManager;
+    [SerializeField]
     private Rigidbody rigidbodyColor;
     public GameObject brush;
 
@@ -49,6 +51,7 @@ public class PaintBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        soundManager.HitSound();
         Destroy(gameObject);
     }
 }

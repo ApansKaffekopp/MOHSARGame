@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2edc1d7defd7a4b8cd16ebc1e27cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 4157077451930706585, guid: 554a39eb1bbc87a41b11befcb5109c2e,
+    type: 3}
   rigidbodyColor: {fileID: -2903783849706345361}
   brush: {fileID: 0}
   materials:
