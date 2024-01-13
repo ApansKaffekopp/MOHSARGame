@@ -3230,6 +3230,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 798505829}
+    - target: {fileID: 3289579211391496871, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289579211391496871, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -800
+      objectReference: {fileID: 0}
     - target: {fileID: 4187625131684838516, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_Pivot.x
