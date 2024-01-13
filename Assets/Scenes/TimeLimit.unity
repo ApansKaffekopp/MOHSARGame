@@ -807,7 +807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &526857387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,6 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateInput: {fileID: 1364137054}
+  tutorial: {fileID: 1544928783}
 --- !u!114 &1364137056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brush: {fileID: 579817760}
   tutorials: {fileID: 1544928783}
+  uiElements: {fileID: 1906107661140472388}
 --- !u!1 &1585411801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,6 +3491,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 4726209299498180234, guid: efdea11b31352604b8ffaf9cf11c54e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5017193044533430652, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_IsActive
@@ -3727,7 +3734,7 @@ PrefabInstance:
     - target: {fileID: 4726209299498180234, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: UIElements
       objectReference: {fileID: 0}
     - target: {fileID: 4726209299498180234, guid: efdea11b31352604b8ffaf9cf11c54e0,
         type: 3}
@@ -3799,6 +3806,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdea11b31352604b8ffaf9cf11c54e0, type: 3}
+--- !u!1 &1906107661140472388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4726209299498180234, guid: efdea11b31352604b8ffaf9cf11c54e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906107661140472387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6144790292595033054
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.XR.ARFoundation;
 public class ObjectRotation : MonoBehaviour
 {
     [SerializeField] GameObject rotateInput;
+    [SerializeField] GameObject tutorial;
 
     private bool isRotating = false;
     private Vector2 previousTouchPosition;
@@ -88,6 +89,7 @@ public class ObjectRotation : MonoBehaviour
     public void AnchorObject()
     {
         GameObject.Find("Plane(Clone)").AddComponent<ARAnchor>();
+        tutorial.SetActive(true);
         rotateInput.SetActive(false);
     }
 }

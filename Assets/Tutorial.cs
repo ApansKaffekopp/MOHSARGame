@@ -7,6 +7,7 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] GameObject brush;
     [SerializeField] GameObject tutorials;
+    [SerializeField] GameObject uiElements;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +23,6 @@ public class Tutorial : MonoBehaviour
     public void EndTutorial(){
         tutorials.SetActive(false);
         brush.SetActive(true);
+        uiElements.SetActive(true);
     }
 }
